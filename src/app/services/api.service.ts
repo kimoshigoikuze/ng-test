@@ -36,7 +36,6 @@ export class ApiService {
         }
       });
     }
-    console.log(pagination);
     return {
       books: response.body,
       pagination

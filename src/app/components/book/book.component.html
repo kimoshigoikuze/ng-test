@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col my-4">
+      <a class="btn btn-primary"
+         [routerLink]="['/']">To book list</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card flex-row">
+        <img class="card-img-top img-fluid w-25" src="{{book.image}}" alt="Card image cap" >
+        <div class="card-body ">
+          <h5 class="card-title">{{book.title}} by {{book.author}}</h5>
+          <h5>EUR {{ book.price }}<small>({{book.quantity}} left)</small></h5>
+          <p class="card-text mt-2">{{book.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

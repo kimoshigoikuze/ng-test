@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col mt-4">
+      <p>List of books:</p>
+    </div>
+  </div>
+  <div class="row">
+    <ul class="list col">
+      <li *ngFor="let book of books"
+          class="p-2">
+        <a [attr.href]="book.available ? '/book/' + book.id : undefined">
+          <img *ngIf="book.image" src="{{book.image}}"
+               class="list__image p-2"
+          >
+          <span class="list__information">
+          "{{book.title}}" by {{book.author}}
+        </span>
+          <span *ngIf="!book.avilable"
+                class="small">(unavailable)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <nav aria-label="...">
+    <ul class="pagination pagination-sm">
+      <li *ngIf="pagination.prev"
+          class="page-item">
+        <a class="page-link"
+           href="{{'/page/' + pagination.prev}}">Previous</a>
+      </li>
+      <li *ngFor="let page of pagination.pages"
+          [attr.class]="pagination.next - 1 === page || (pagination.next === null && pagination.last == page) ? 'active page-item' : 'page-item'">
+        <a class="page-link"
+           href="{{'/page/' + page}}">{{page}}</a>
+      </li>
+      <li *ngIf="pagination.next"
+          class="page-item">
+        <a class="page-link"
+           href="{{'/page/' + pagination.next}}">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
